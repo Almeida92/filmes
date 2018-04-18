@@ -37,4 +37,8 @@ export class ListaFilmesComponent implements OnInit {
   ngOnInit() {
   }
 
+  apagaFilme(id: string) {
+    this.filmes = this.filmes.filter(filme => filme.id != id);
+  }
+
 }

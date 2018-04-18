@@ -1,5 +1,5 @@
 import { Filme } from './../../filme';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filme',
@@ -9,10 +9,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FilmeComponent implements OnInit {
 
   @Input() filme: Filme;
+  @Output() apaga = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  apagaFilme(id: string) {
+    this.apaga.emit(this.filme.id);
   }
 
 }
