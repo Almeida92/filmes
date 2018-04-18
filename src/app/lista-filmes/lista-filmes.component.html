@@ -7,6 +7,6 @@
     <hr class="my-4">
 
     <!-- nossa lista de filmes vem aqui  -->
-    <app-filme></app-filme>
+    <app-filme *ngFor="let filme of filmes" [filme]="filme"></app-filme>
   </div>
 </div>
