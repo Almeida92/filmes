@@ -1,3 +1,4 @@
+import { FilmeService } from './filme.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,7 +17,9 @@ import { FilmeComponent } from './lista-filmes/filme/filme.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    FilmeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
