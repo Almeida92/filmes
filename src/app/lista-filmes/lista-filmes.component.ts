@@ -9,14 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaFilmesComponent implements OnInit {
 
-  filmes: Filme[] = null;
+  filmes: Filme[] = [];
 
   constructor(
     private filmeService: FilmeService
   ) { }
 
   ngOnInit() {
-    this.filmes = this.filmeService.getFilmes();
+    this.filmeService.getFilmes()
+      .subscribe(data => {
+        data['Search'].map(filme => {
+          let film = {
+            'id': filme.imdbID,
+            'titulo': filme.Title,
+            'ano': filme.Year,
+            'tipo': filme.Type,
+            'poster': filme.Poster
+          };
+          this.filmes.push(film);
+        });
+      });
   }
 
   apagaFilme(id: string) {
